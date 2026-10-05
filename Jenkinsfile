@@ -23,9 +23,17 @@ pipeline {
             }
         }
 
-        stage('Test Application') {
+    stage('Test Application') {
+        steps {
+            bat 'timeout /t 5 /nobreak'
+            bat 'curl http://localhost:3001'
+    }
+}
+
+        stage('Selenium Test') {
             steps {
-                bat 'curl http://localhost:3001'
+                bat 'pip install selenium'
+                bat 'python selenium-tests\\test_registration.py'
             }
         }
     }
