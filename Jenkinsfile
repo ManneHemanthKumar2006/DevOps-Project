@@ -36,5 +36,14 @@ pipeline {
         bat '"C:\\Users\\Hemanth\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" selenium-tests\\test_registration.py'
     }
 }
+
+stage('Deploy to Kubernetes') {
+    steps {
+        bat 'kubectl apply -f k8s/deployment.yaml'
+        bat 'kubectl apply -f k8s/service.yaml'
+        bat 'kubectl apply -f k8s/pvc.yaml'
+        bat 'kubectl rollout status deployment/college-event-app'
+    }
+}
     }
 }
