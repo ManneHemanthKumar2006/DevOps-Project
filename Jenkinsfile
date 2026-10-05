@@ -25,7 +25,7 @@ pipeline {
 
     stage('Test Application') {
         steps {
-            bat 'timeout /t 5 /nobreak'
+            sleep 5
             bat 'curl http://localhost:3001'
     }
 }
