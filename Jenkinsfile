@@ -31,10 +31,10 @@ pipeline {
 }
 
         stage('Selenium Test') {
-            steps {
-                bat 'pip install selenium'
-                bat 'python selenium-tests\\test_registration.py'
-            }
-        }
+    steps {
+        bat '"C:\\Users\\Hemanth\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" -m pip install selenium'
+        bat '"C:\\Users\\Hemanth\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe" selenium-tests\\test_registration.py'
+    }
+}
     }
 }
